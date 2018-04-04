@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wuxiaoqing/testnpmaaaaaaaa.git"
+    "url": "git+https://github.com/wuxiaoqing/jdbbaseuicore.git"
   },
   "keywords": [
     "test"
@@ -16,7 +16,7 @@
   "author": "wuxiaoqing",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/wuxiaoqing/testnpmaaaaaaaa/issues"
+    "url": "https://github.com/wuxiaoqing/jdbbaseuicore/issues"
   },
-  "homepage": "https://github.com/wuxiaoqing/testnpmaaaaaaaa#readme"
+  "homepage": "https://github.com/wuxiaoqing/jdbbaseuicore#readme"
 }

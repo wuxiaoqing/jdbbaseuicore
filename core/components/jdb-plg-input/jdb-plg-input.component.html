@@ -1,0 +1,39 @@
+<span class="input-group-addon" *ngIf="_addOnContentBefore">
+    <ng-template [ngTemplateOutlet]="_addOnContentBefore">
+    </ng-template>
+</span>
+<ng-template [ngIf]="_type=='text'">
+    <div class="input-text-wrap" [ngClass]="_inputWrapClass">
+        <span class="input-prefix" *ngIf="_prefixContent">
+            <ng-template [ngTemplateOutlet]="_prefixContent">
+            </ng-template>
+        </span>
+        <input (blur)="_emitBlur($event)" (focus)="_emitFocus($event)" [disabled]="_disabled" [readonly]="_readonly" [attr.id]="jdbId" [attr.type]="_type" class="input" [ngClass]="_classMap" [attr.placeholder]="_placeHolder" [(ngModel)]="jdbValue" [style.width]="width" />
+        <span class="input-clear" *ngIf="_clear && jdbValue && _type=='text'" (click)="clearTxt()">
+            <i class="close-icon icon-empty"></i>
+        </span>
+        <span class="ant-input-suffix" *ngIf="_suffixContent">
+            <i class="iconfont icon-guanbi2fill"></i>
+            <ng-template [ngTemplateOutlet]="_suffixContent">
+            </ng-template>
+        </span>
+    </div>
+    <div class="input-error-tip" *ngIf="jdbError && _errorContent">
+        <i class="icon-message-error error-tip"></i>
+        <span>
+            <ng-template [ngTemplateOutlet]="_errorContent">
+            </ng-template>
+        </span>
+    </div>
+</ng-template>
+<span class="input-group-addon" *ngIf="_addOnContentAfter">
+      <ng-template [ngTemplateOutlet]="_addOnContentAfter">
+      </ng-template>
+</span>
+<ng-template [ngIf]="_type=='textarea'">
+    <div class="input-text-wrap">
+        <textarea (blur)="_emitBlur($event)" (focus)="_emitFocus($event)" (input)="textareaOnChange($event)" [attr.id]="jdbId" #inputTextarea [disabled]="_disabled" [readonly]="_readonly" type="textarea" class="input input-textarea" [ngClass]="_classMap" [attr.placeholder]="jdbPlaceHolder"
+            [(ngModel)]="jdbValue" maxlength="{{jdbMaxLength}}" [style.width]="width"></textarea>
+        <span class="textarea-wc-tip" [ngClass]="{'textarea-wc-tip-red': jdbValue.length==jdbMaxLength}" *ngIf="jdbMaxLength && !_disabled &&!_readonly">{{jdbValue.length}}/{{jdbMaxLength}}</span>
+    </div>
+</ng-template>

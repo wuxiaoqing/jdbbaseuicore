@@ -1,0 +1,40 @@
+<div [ngClass]="_customClass">
+    
+    <div class="_maskClass" [ngClass]="{'hid':!_visible}" [style.zIndex]="1000"></div>
+    <div class="jdb-modal" tabindex="-1" role="dialog" [ngClass]="{'hid':!_visible}" [ngStyle]="{'dispaly':!_visible}" (click)="closeModal($event)" class="_wrapClass" [ngClass]="_wrapClass" [style.zIndex]="1000" [attr.aria-modalId]="modalId">
+        <div #modal_content class="modal" [@optionsState]="_state" [ngStyle]="_bodyStyleMap">
+            <div class="modal-content">
+                <ng-template [ngIf]="_closeable">
+                    <button class="modal-close" (click)="clickCancel($event)">
+                      <!-- <span class="modal-close-x"></span> -->
+                      <span class="icon-close"></span>
+                    </button>
+                </ng-template>
+
+                <div class="modal-header" *ngIf="_title||_titleTpl">
+                    <div class="modal-title" [attr.id]="modalId">
+                        <ng-template #defaultTitle>
+                            {{_title}}
+                        </ng-template>
+                        <ng-template [ngTemplateOutlet]="_titleTpl||defaultTitle">
+                        </ng-template>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <ng-template #defaultContent>{{_content}}</ng-template>
+                    <ng-template [ngTemplateOutlet]="_contentTpl||defaultContent"></ng-template>
+                    <ng-template #modal_component></ng-template>
+                </div>
+                <div class="modal-footer" *ngIf="!_footerHide">
+                    <ng-template #defalutFooter>
+                        <button *ngIf="!_isConfirm" app-jdb-plg-button [jdbSize]="'default'" [jdbType]="'white'" (click)="clickCancel($event)"><span>{{_cancelText}}</span></button>
+                        <button *ngIf="!_isConfirm" class="right-btn" app-jdb-plg-button [jdbSize]="'default'" [jdbType]="'primary'" (click)="clickOk($event)"><span>{{_okText}}</span></button>
+                        <button *ngIf="_isConfirm" class="right-btn" app-jdb-plg-button [jdbSize]="'default'" [jdbType]="'primary'" (click)="clickOk($event)" (click)="clickOk($event)"><span>{{_RogerText}}</span></button>
+                    </ng-template>
+                    <ng-template [ngTemplateOutlet]="_footerTpl||defalutFooter"></ng-template>
+                </div>
+                <div tabindex="0" style="width:0px;height:0px;overflow:hidden;">aaa</div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+@import './base/variables';
+@import './base/reboot';
+@import './base/reset';
+@import './base/button';
+@import './base/fonts';
+// @import 'clearfix';
+// @import './button/button';
+// @import './table/table';
+// @import './form/form';
+// @import './dropdown/dropdown';
+// @import './jdbui-content/jdbui-content';
+// @import './jdb-input-date/jdb-input-date';
+.content-wraper {
+    overflow: auto;
+}
+
+.table-no-data {
+    background-color: #F2F6F9;
+    color: #333;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+}

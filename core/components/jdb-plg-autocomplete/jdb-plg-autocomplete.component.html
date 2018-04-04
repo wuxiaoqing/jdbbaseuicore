@@ -1,0 +1,11 @@
+<div class="autoprompt">
+    <app-jdb-plg-input [jdbType]="'text'" [jdbPlaceHolder]="jdbPlaceHolder" [jdbClear]="true" [(ngModel)]="_searchWord" [width]="width">
+    </app-jdb-plg-input>
+    <ul *ngIf="_searchWord && _listShow" [style.width]="width">
+        <li *ngFor="let item of items;index as i" [ngClass]="{'selected': activeIndex == i}" (click)="selectedItem(item,i)">
+            <p>
+                {{item.value}}
+            </p>
+        </li>
+    </ul>
+</div>

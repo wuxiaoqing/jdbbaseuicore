@@ -1,0 +1,29 @@
+<div class="picture-viewer">
+    <div class="img-mask" *ngIf="_jdbMaster" (click)="closeModel()">
+        <!-- 遮罩层 -->
+    </div>
+    <div #imgContent [ngClass]="{'img-content-componet':jdbShowType==2}" class="img-content">
+        <!-- 右上角关闭按钮 -->
+        <span class="close" *ngIf="_jdbClear" (click)="closeModel()">
+            <img src="/assets/images/close-x.png" alt="" />
+        </span>
+        <!-- 图片box -->
+        <ul class="img-box" #img>
+            <li *ngFor="let item of pictureList;let i=index" [@imgMove]="ImgState(i)">
+                <img appDragDirective  [src]="item.imgUrl" alt="" style="max-height: 600px;max-width: 800px;">
+            </li>
+        </ul>
+        <!-- 上一页下一页 -->
+        <a [hidden]="current==0" class="prev" (click)="Prev()"></a>
+        <a [hidden]="current==pictureList.length-1" class="next" (click)="Next()"></a>
+        <!-- 右下角页码 -->
+        <div class="img-index">{{current+1}}/{{pictureList.length}}</div>
+        <!-- 缩放旋转按钮组 -->
+        <div class="btn-box">
+            <span class="scale-big" (click)="scaleBig()"></span>
+            <span class="scale-small" (click)="scaleSmall()"></span>
+            <span class="routate-ni" (click)="routateNi()"></span>
+            <span class="routate-shun" (click)="routateShun()"></span>
+        </div>
+    </div>
+</div>

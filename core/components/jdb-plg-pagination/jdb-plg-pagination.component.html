@@ -1,0 +1,64 @@
+<div class="jdb-plg-pagination">
+    <!-- 总条数 -->
+    <span *ngIf="_showTotal" class="total-box">
+      共{{_total}}条
+    </span>
+
+    <!-- 条数切换 -->
+    <div class="jdb-plg-pagination-options" *ngIf="_showPageSize">
+        <app-jdb-plg-select (ngModelChange)="dataChange(false,$event)" [jdbSize]="'small'" [jdbWidth]="'90px'" [(ngModel)]="_pageSize" [jdbSelectList]="_options"></app-jdb-plg-select>
+    </div>
+    <!-- 基本分页样式 -->
+    <ul *ngIf="!_jdbSimple" class="base-pagination">
+        <!-- 上一页按钮 -->
+        <li class="jdb-plg-pagination-prev" title="上一页" [ngClass]="{'disabled':_current===_firstIndex}" (click)="dataChange(true,_current-1)">
+            <span class="jdbIcon icon-pagination-prev"></span>
+        </li>
+        <!-- 首页按钮 -->
+        <li class="jdb-plg-pagination-first" title="首页" [ngClass]="{'active':_current===_firstIndex}" (click)="dataChange(true,_firstIndex)">
+            {{_firstIndex}}
+        </li>
+        <!-- 省略号 -->
+        <li class="jdb-plg-pagination-forward" *ngIf="(_lastIndex >9)&&(_current-4>_firstIndex)" (click)="jumpBefore(_pageSize)">
+            <span class="icon-pagination-more"></span>
+            <span class="icon-pagination-jump-prev"></span>
+        </li>
+        <!-- 按钮 -->
+        <li class="jdb-plg-pagination-pager" *ngFor="let page of pages" [ngClass]="{'active':_current===page.index}" (click)="dataChange(true,page.index)">
+            {{page.index}}
+        </li>
+        <!-- 省略号 -->
+        <li class="jdb-plg-pagination-backward" *ngIf="(_lastIndex >9)&&(_current+4<_lastIndex)" (click)="jumpAfter(_pageSize)">
+            <span class="icon-pagination-more"></span>
+            <span class="icon-pagination-jump-next"></span>
+        </li>
+        <!-- 尾页按钮 -->
+        <li class="jdb-plg-pagination-last" *ngIf="(_lastIndex>0)&&(_lastIndex!==_firstIndex)" title="尾页" [ngClass]="{'active':_current===_lastIndex}" (click)="dataChange(true,_lastIndex)">
+            {{_lastIndex}}
+        </li>
+        <!-- 下一页按钮 -->
+        <li class="jdb-plg-pagination-next" title="下一页" [ngClass]="{'disabled':_current===_lastIndex}" (click)="dataChange(true,_current+1)">
+            <span class="jdbIcon icon-pagination-next"></span>
+        </li>
+    </ul>
+    <!-- 简单分页样式 -->
+    <div class="simple-pagination" *ngIf="_jdbSimple">
+        <div class="left-box">
+            <span class="icon-pagination-first" [ngClass]="{'disabled':_current===_firstIndex}" (click)="dataChange(true,_firstIndex)"></span>
+            <span class="icon-pagination-prev" [ngClass]="{'disabled':_current===_firstIndex}" (click)="dataChange(true,_current-1)"></span>
+        </div>
+        <div class="center-box">
+            {{_current}} / {{_lastIndex}}
+        </div>
+        <div class="right-box">
+            <span class="icon-pagination-next" [ngClass]="{'disabled':_current===_lastIndex}" (click)="dataChange(true,_current+1)"></span>
+            <span class="icon-pagination-last" [ngClass]="{'disabled':_current===_lastIndex}" (click)="dataChange(true,_lastIndex)"></span>
+        </div>
+    </div>
+    <!-- 快速跳转 -->
+    <div *ngIf="_showQuickJump" class="quick-jumper">
+        第
+        <input #inputJump type="text" [(ngModel)]="quickJumpPage" (keyup.enter)="quickJump()" appOnlyNumber="true"> 页
+        <button (click)="quickJump()">跳转</button>
+    </div>
+</div>

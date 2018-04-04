@@ -1,0 +1,122 @@
+@import '../../scss/base/mixins.scss';
+@import '../../scss/base/_variables.scss';
+// $prefix:'modal';
+._maskClass {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    &.hid {
+        display: none;
+    }
+}
+
+// .jdb-modal {
+//     position: fixed;
+//     overflow: auto;
+//     top: 0;
+//     left: 0;
+//     bottom: 0;
+//     right: 0;
+//     z-index: 1000;
+//     -webkit-overflow-scrolling: touch;
+//     outline: 0;
+// }
+.modal-content {}
+
+._wrapClass {
+    position: fixed;
+    overflow: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1000;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;
+    &.hid {
+        display: none;
+    }
+}
+
+.modal {
+    // margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    // opacity: 0;
+    // transition: all 1s ease .5s;
+    // &.open {
+    //     opacity: 1;
+    //     transform: translate(-50%, -50%);
+    //     transition: all 1s ease .5s;
+    // }
+}
+
+.modal-header {
+    background: $bg-a;
+    @include border($btn-gray-p, 'bottom');
+    @include radius(3px, 'top-left');
+    @include radius(3px, 'top-right');
+}
+
+.modal-title {
+    margin: 0;
+    font-size: 16px;
+    line-height: 40px;
+    color: $font-a;
+    text-align: center;
+}
+
+.modal-close {
+    cursor: pointer;
+    border: none;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 10;
+    line-height: 1;
+    text-decoration: none;
+    color: $black;
+    outline: none;
+    &-x {
+        display: inline-block;
+        text-align: center;
+        width: 20px;
+        height: 20px;
+        line-height: 40px;
+        font-size: 16px;
+        // background: url('../../../../../assets/images/common/close.svg') no-repeat;
+        background-size: cover;
+        &:hover {
+            transition: color .3s ease;
+            color: $black;
+        }
+    }
+}
+
+.modal-body {
+    padding: 40px;
+    background: $body-bg;
+}
+
+.modal-footer {
+    padding: 40px 0;
+    background: $body-bg;
+    @include radius(3px, 'bottom-left');
+    @include radius(3px, 'bottom-right');
+    text-align: center;
+    .right-btn {
+        margin-left: 20px;
+    }
+}
+
+// .cust {
+//     color: red;
+//

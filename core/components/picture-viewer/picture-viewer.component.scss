@@ -1,0 +1,161 @@
+.picture-viewer {
+    // 遮罩层样式
+    .img-mask {
+        width: 100%;
+        height: 100%;
+        background: #000;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        filter: alpha(opacity=30);
+        /*IE滤镜，透明度50%*/
+        -moz-opacity: 0.3;
+        /*Firefox私有，透明度50%*/
+        opacity: 0.8;
+        /*其他，透明度50%*/
+        z-index: 9998;
+        display: block;
+    }
+    // 图片框样式
+    .img-content {
+        //overflow: scroll;
+        background-color: #d7d8db;
+        position: fixed;
+        // width: 800px;
+        // height: 600px;
+        // margin-left: -400px;
+        left: 50%;
+        // margin-top: -300px;
+        top: 50%;
+        // line-height: 600px;
+        border: 1px solid #ccc;
+        z-index: 9999;
+        text-align: center;
+        box-sizing: border-box;
+        border: none;
+        .close {
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            border-radius: 11px;
+            background-color: #e7e8e9;
+            top: 8px;
+            right: 8px;
+            z-index: 9999;
+            text-align: center;
+            line-height: 8px;
+        }
+        .img-box {
+            position: absolute;
+            left: 0;
+            // width: 800px;
+            // height: 600px;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            li {
+                background-color: #d7d8db;
+                position: absolute;
+                z-index: 11;
+                //display: table;
+                height: 100%;
+                width: 100%;
+                transition: 0.1s;
+                img {
+                    position: absolute;
+                    display: block; //去除3px间距
+                    margin: auto;
+                    transition: transform 0.1s;
+                }
+            }
+        }
+        a {
+            position: absolute;
+            top: 50%;
+            margin-top: -30px;
+            width: 60px;
+            height: 60px;
+            z-index: 400;
+            background: url(/assets/images/CXicon.png) no-repeat;
+            background-size: 192px 144px;
+        }
+        .next {
+            right: 20px;
+            background-position: -54px -78px;
+        }
+        .prev {
+            left: 20px;
+            background-position: -54px -6px;
+        }
+        .next:hover {
+            background-position: -126px -78px;
+        }
+        .prev:hover {
+            background-position: -126px -6px;
+        }
+        .img-index {
+            position: absolute;
+            bottom: 15px;
+            right: 22px;
+            z-index: 101;
+            color: #323233;
+            font-size: 16px;
+            height: 22px;
+            line-height: 22px;
+            width: 42px;
+            text-align: center;
+            border-radius: 2px;
+            background: rgba(215, 216, 219, 0.7);
+        }
+        .btn-box {
+            position: absolute;
+            z-index: 109;
+            bottom: 12px;
+            left: 50%;
+            margin-left: -73px;
+            padding: 7px 8px;
+            height: 30px;
+            width: 147px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 2px;
+            span {
+                float: left;
+                height: 16px;
+                width: 16px;
+                margin: 0 8px;
+                background: url(/assets/images/CXicon.png) no-repeat;
+                background-size: 192px 144px;
+            }
+            .scale-big {
+                background-position: -4px -4px;
+            }
+            .scale-small {
+                background-position: -4px -28px;
+            }
+            .routate-ni {
+                background-position: -4px -52px;
+            }
+            .routate-shun {
+                background-position: -4px -76px;
+            }
+            .scale-big:hover {
+                background-position: -28px -4px;
+            }
+            .scale-small:hover {
+                background-position: -28px -28px;
+            }
+            .routate-ni:hover {
+                background-position: -28px -52px;
+            }
+            .routate-shun:hover {
+                background-position: -28px -76px;
+            }
+        }
+    }
+    .img-content-componet {
+        position: relative;
+        top: 0;
+        left: 0;
+        margin: 0;
+    }
+}

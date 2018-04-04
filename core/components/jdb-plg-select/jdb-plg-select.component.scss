@@ -1,0 +1,220 @@
+@import '../../scss/base/variables';
+.jdb-plg-select-one,
+.jdb-plg-select-more,
+.jdb-plg-select-num {
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    border: 1px solid $font-c;
+    border-radius: 2px;
+    background: $body-bg;
+    cursor: pointer;
+    // 未选择内容时字体颜色
+    .jdb-plg-select-placeholder {
+        color: $font-c;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+    // 弹框列表
+    .options {
+        position: absolute;
+        overflow: scroll;
+        z-index: 9999;
+        // bottom: -195px;
+        opacity: 0;
+        transform: scaleY(0);
+        transform-origin: 0% 0%;
+        left: -1px;
+        border: 1px solid $font-c;
+        width: 100%;
+        max-height: 190px;
+        background: $body-bg;
+        transition: 150ms cubic-bezier(0.25, 0.8, 0.25, 1);
+        li {
+            padding: 6px 12px;
+            min-height: 30px;
+            color: $font-a;
+            &:hover {
+                background-color: $btn-gray-n;
+                color: $font-a;
+            }
+            .choose-right {
+                float: right;
+                margin-top: -2px;
+            }
+        }
+        .choose-more {
+            margin-bottom: 1px;
+        }
+        // 选中元素样式
+        .active {
+            background-color: $btn-blue-n;
+            color: white;
+            &:hover {
+                background-color: $btn-blue-n;
+                color: white;
+            }
+        }
+        // 禁止点击元素样式
+        .disabled {
+            background-color: none;
+            color: $font-c;
+            cursor: not-allowed;
+            &:hover {
+                background-color: none;
+                color: $font-c;
+            }
+        }
+    }
+    // 弹框展示样式
+    .options-show {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+    .close-icon {
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        margin-top: -12px;
+        color: $font-b;
+    }
+    .close-icon:hover {
+        color: $font-a;
+    }
+    .select-icon {
+        position: absolute;
+        right: 5px;
+        top: 50%;
+        margin-top: -12px;
+    }
+}
+
+.jdb-plg-select-one {
+    .chooseOne {
+        color: $body-color;
+    }
+}
+
+.jdb-plg-select-more,
+.jdb-plg-select-num {
+    .chooseMore {
+        li {
+            position: relative;
+            display: inline-block;
+            margin-right: 5px;
+            padding: 0px 5px;
+            height: 22px;
+            // line-height: 22px;
+            font-size: 13px;
+            border: 1px solid $btn-gray-p;
+            border-radius: 2px;
+            color: $body-color;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            user-select: none;
+            .item-delete {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+.jdb-plg-select-active {
+    border: 1px solid $btn-blue-n;
+}
+
+// 整体禁用样式
+.jdb-plg-select-disabled {
+    background: $btn-gray-n;
+}
+
+.small {
+    min-height: 24px;
+    padding: 2px 10px;
+    font-size: 12px;
+    .options {
+        margin-top: 7px;
+    }
+    // 弹框展示margin失效
+    .options-no-margin {
+        margin: 0;
+    }
+}
+
+.middle {
+    min-height: 30px;
+    padding: 5px 10px;
+    font-size: 13px;
+    .options {
+        margin-top: 10px;
+    }
+    // 弹框展示margin失效
+    .options-no-margin {
+        margin: 0;
+    }
+    .jdb-plg-select-placeholder,
+    .chooseOne,
+    .choose-tip {
+        height: 18px;
+        line-height: 18px;
+    }
+    .chooseOne,
+    .choose-tip {
+        display: block;
+    }
+    .chooseMore {
+        li {
+            margin-bottom: 3px;
+        }
+    }
+}
+
+.large {
+    min-height: 40px;
+    padding: 9px 10px;
+    font-size: 14px;
+    .options {
+        margin-top: 14px;
+    }
+    // 弹框展示margin失效
+    .options-no-margin {
+        margin: 0;
+    }
+    .jdb-plg-select-placeholder,
+    .chooseOne,
+    .choose-tip {
+        height: 20px;
+        line-height: 20px;
+    }
+    .chooseOne,
+    .choose-tip {
+        display: block;
+    }
+    .chooseMore {
+        li {
+            margin-bottom: 8px;
+        }
+    }
+}
+
+.jdb-plg-select-bottom-middle {
+    padding: 3px 10px;
+    padding-bottom: 0;
+}
+
+.jdb-plg-select-bottom-large {
+    padding: 8px 10px;
+    padding-bottom: 0;
+}
+
+// 弹窗出现后的遮罩层
+.jdb-plg-select-master {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;
+    z-index: 9998;
+}

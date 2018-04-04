@@ -1,0 +1,12 @@
+<ng-content></ng-content>
+<ng-template #overlay="nzConnectedOverlay" nz-connected-overlay [origin]="jdbOrigin" (positionChange)="onPositionChange($event)" [positions]="_positions" [open]="visible$ | async">
+    <div class="jdb-plg-tooltip" [ngClass]="_classMap">
+        <div class="jdb-plg-arrow"></div>
+        <div class="jdb-plg-inner">
+            <span *ngIf="!jdbTemplate">{{_jdbTitle}}</span>
+            <ng-template *ngIf="jdbTemplate" [ngTemplateOutlet]="jdbTemplate">
+                <!-- 带图标的tooltip -->
+            </ng-template>
+        </div>
+    </div>
+</ng-template>

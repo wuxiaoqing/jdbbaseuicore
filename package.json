@@ -1,0 +1,22 @@
+{
+  "name": "jdbbaseuicore",
+  "version": "1.1.0",
+  "description": "testnpm",
+  "main": "jdb-plg-ui.module.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wuxiaoqing/testnpmaaaaaaaa.git"
+  },
+  "keywords": [
+    "test"
+  ],
+  "author": "wuxiaoqing",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wuxiaoqing/testnpmaaaaaaaa/issues"
+  },
+  "homepage": "https://github.com/wuxiaoqing/testnpmaaaaaaaa#readme"
+}

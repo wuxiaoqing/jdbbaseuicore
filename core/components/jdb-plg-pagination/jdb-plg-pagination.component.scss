@@ -1,0 +1,157 @@
+@import '../../scss/base/variables'; // 颜色变量需要使用import导入
+.jdb-plg-pagination {
+    // overflow: hidden;    // 解决下拉框问题
+    height: 24px; // 解决子元素浮动问题
+    background: $body-bg;
+    display: inline-block;
+    .total-box {
+        float: left;
+        margin-right: 30px;
+        height: 24px;
+        line-height: 24px;
+        font-size: 12px;
+        color: $font-a;
+    }
+    .jdb-plg-pagination-options {
+        float: left;
+        margin-right: 30px;
+    }
+    .base-pagination {
+        float: left;
+        overflow: hidden;
+        li {
+            position: relative;
+            float: left;
+            margin-right: 5px;
+            padding: 0 5px;
+            height: 24px;
+            min-width: 24px;
+            line-height: 24px;
+            text-align: center;
+            border-radius: 2px;
+            color: $font-a;
+            border: 1px solid $font-c;
+            cursor: pointer;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        // 上一页下一页按钮置灰样式
+        .disabled {
+            background: $bg-a;
+            color: #bfc0c4;
+            border: 1px solid $line-a;
+        }
+        // 省略号样式
+        .jdb-plg-pagination-forward,
+        .jdb-plg-pagination-backward {
+            border: none;
+            padding: 0;
+            .icon-pagination-jump-prev {
+                color: $btn-blue-n;
+                display: none;
+            }
+            .icon-pagination-jump-next {
+                color: $btn-blue-n;
+                display: none;
+            }
+        }
+        .jdb-plg-pagination-forward:hover {
+            .icon-pagination-jump-prev {
+                display: block;
+            }
+            .icon-pagination-more {
+                display: none;
+            }
+        }
+        .jdb-plg-pagination-backward:hover {
+            .icon-pagination-jump-next {
+                display: block;
+            }
+            .icon-pagination-more {
+                display: none;
+            }
+        }
+        // 按钮hover状态
+        .jdb-plg-pagination-prev:hover,
+        .jdb-plg-pagination-next:hover,
+        .jdb-plg-pagination-first:hover,
+        .jdb-plg-pagination-last:hover,
+        .jdb-plg-pagination-pager:hover {
+            color: $btn-blue-h;
+            border: 1px solid $btn-blue-h;
+        }
+        // 点击后样式
+        .active {
+            background: $btn-blue-h;
+            color: $body-bg;
+            border: none;
+        }
+        // 当前选中元素hover状态下样式不改变
+        .active:hover {
+            background: $btn-blue-h;
+            color: $body-bg;
+            border: none;
+        }
+        // 上一页下一页图标样式 
+        .jdb-plg-pagination-prev,
+        .jdb-plg-pagination-next {
+            padding: 0;
+            .jdbIcon {
+                font-size: 22px;
+            }
+        }
+    }
+    .simple-pagination {
+        float: left;
+        overflow: hidden;
+        .left-box,
+        .center-box,
+        .right-box {
+            overflow: hidden;
+            float: left;
+            span {
+                float: left;
+                line-height: 24px;
+                text-align: center;
+                height: 24px;
+                width: 24px;
+            }
+            span:first-child {
+                margin-right: 1px;
+            }
+            .disabled {
+                color: $btn-gray-p;
+            }
+            span:hover {
+                color: $btn-blue-h
+            }
+        }
+        .center-box {
+            width: 50px;
+            height: 24px;
+            line-height: 24px;
+            text-align: center;
+        }
+    }
+    .quick-jumper {
+        float: left;
+        margin-left: 20px;
+        input,
+        button {
+            text-align: center;
+            line-height: 24px;
+            width: 40px;
+            height: 24px;
+            border-radius: 3px;
+            border: 1px solid $line-a;
+            outline: none;
+        }
+        button {
+            margin-left: 15px;
+        }
+        input {
+            ime-mode: disabled;
+        }
+    }
+}

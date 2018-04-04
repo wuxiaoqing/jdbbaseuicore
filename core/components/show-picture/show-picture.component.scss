@@ -1,0 +1,52 @@
+@import '../../scss/base/_variables.scss';
+// 遮罩层样式
+.img-mask {
+    width: 100%;
+    height: 100%;
+    background: $black;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    filter: alpha(opacity=30);
+    /*IE滤镜，透明度50%*/
+    -moz-opacity: 0.3;
+    /*Firefox私有，透明度50%*/
+    opacity: 0.8;
+    /*其他，透明度50%*/
+    z-index: 9998;
+    display: block;
+}
+
+// 图片框样式
+.img-content {
+    background-color: $btn-gray-p;
+    position: fixed;
+    width: 800px;
+    height: 600px;
+    margin-left: -400px;
+    left: 50%;
+    margin-top: -300px;
+    top: 50%;
+    line-height: 600px;
+    border: 1px solid $line-a;
+    z-index: 9999;
+    text-align: center;
+    box-sizing: border-box;
+    font-size: 0;
+    border: none;
+    .close {
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        border-radius: 11px;
+        background-color: #e7e8e9;
+        top: 8px;
+        right: 8px;
+        z-index: 9999;
+        text-align: center;
+        line-height: 8px;
+    }
+    img {
+        vertical-align: middle;
+    }
+}

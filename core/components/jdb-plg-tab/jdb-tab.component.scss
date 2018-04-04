@@ -1,0 +1,60 @@
+@import '../../scss/base/_variables.scss';
+.tab-wraper {
+    display: flex;
+    flex-direction: column;
+}
+
+.tab-nav-wraper {
+    display: flex;
+    .tab-item {
+        width: 120px;
+        font-size: 13px;
+        display: flex;
+        justify-content: center;
+        background: $bg-a;
+        border: 1px solid $font-c;
+        border-bottom: none;
+        margin-right: 5px;
+        width: 100px;
+        height: 30px;
+        border-radius: 2px 2px 0 0;
+        text-align: center;
+        position: relative;
+        cursor: pointer;
+        .tab-text {
+            color: $font-b;
+            white-space: nowrap;
+            overflow: hidden;
+            vertical-align: middle;
+            text-overflow: ellipsis;
+            padding: 5px 20px 0 20px;
+        }
+        &.tab-selected {
+            background: $body-bg;
+            border: none;
+            border-top: 3px solid $btn-blue-n;
+            .tab-text {
+                color: $btn-blue-n;
+                padding-top: 3px;
+            }
+        }
+        .close-btn {
+            position: absolute;
+            top: 0;
+            right: 8px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #999;
+            font-weight: 100;
+        }
+    }
+}
+
+.tab-content-wraper {
+    .place-holder {
+        width: 0;
+        height: 0;
+    }
+    box-shadow: 1px 1px 1px 1px $font-c;
+    background: $body-bg;
+}

@@ -1,0 +1,177 @@
+@import '../../scss/base/variables';
+// 浮层元素
+.jdb-plg-tooltip {
+    position: relative;
+    z-index: 10000;
+    display: block;
+    visibility: visible;
+}
+
+// 浮层的不同定位
+.jdb-tooltip-top,
+.jdb-tooltip-topLeft,
+.jdb-tooltip-topRight {
+    padding-bottom: 10px;
+}
+
+.jdb-tooltip-right,
+.jdb-tooltip-rightTop,
+.jdb-tooltip-rightBottom {
+    padding-left: 10px;
+}
+
+.jdb-tooltip-bottom,
+.jdb-tooltip-bottomLeft,
+.jdb-tooltip-bottomRight {
+    padding-top: 10px;
+}
+
+.jdb-tooltip-left,
+.jdb-tooltip-leftTop,
+.jdb-tooltip-leftBottom {
+    padding-right: 10px;
+}
+
+// 浮层内容
+.jdb-plg-inner {
+    padding: 9px 11px;
+    line-height: 20px;
+    max-width: 193px;
+    font-size: 13px;
+    color: $font-a;
+    background: $body-bg;
+    box-shadow: 0 0 14px rgba(0, 0, 0, .2);
+    border-radius: 2px;
+    text-align: left;
+    word-break: break-all;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+// 箭头样式设置
+.jdb-plg-arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+}
+
+// 不同位置箭头设置
+.jdb-tooltip-top .jdb-plg-arrow,
+.jdb-tooltip-topLeft .jdb-plg-arrow,
+.jdb-tooltip-topRight .jdb-plg-arrow {
+    bottom: 5px;
+    border-width: 5px 5px 0;
+    border-top-color: $body-bg;
+}
+
+.jdb-tooltip-top .jdb-plg-arrow {
+    left: 50%;
+    margin-left: -5px;
+}
+
+.jdb-tooltip-topLeft .jdb-plg-arrow {
+    left: 16px;
+}
+
+.jdb-tooltip-topRight .jdb-plg-arrow {
+    right: 16px;
+}
+
+.jdb-tooltip-right .jdb-plg-arrow,
+.jdb-tooltip-rightTop .jdb-plg-arrow,
+.jdb-tooltip-rightBottom .jdb-plg-arrow {
+    left: 5px;
+    border-width: 5px 5px 5px 0;
+    border-right-color: $body-bg;
+}
+
+.jdb-tooltip-right .jdb-plg-arrow {
+    top: 50%;
+    margin-top: -5px;
+}
+
+.jdb-tooltip-rightTop .jdb-plg-arrow {
+    top: 10px;
+}
+
+.jdb-tooltip-rightBottom .jdb-plg-arrow {
+    bottom: 10px;
+}
+
+.jdb-tooltip-left .jdb-plg-arrow,
+.jdb-tooltip-leftTop .jdb-plg-arrow,
+.jdb-tooltip-leftBottom .jdb-plg-arrow {
+    right: 5px;
+    border-width: 5px 0 5px 5px;
+    border-left-color: $body-bg;
+}
+
+.jdb-tooltip-left .jdb-plg-arrow {
+    top: 50%;
+    margin-top: -5px;
+}
+
+.jdb-tooltip-leftTop .jdb-plg-arrow {
+    top: 10px;
+}
+
+.jdb-tooltip-leftBottom .jdb-plg-arrow {
+    bottom: 10px;
+}
+
+.jdb-tooltip-bottom .jdb-plg-arrow,
+.jdb-tooltip-bottomLeft .jdb-plg-arrow,
+.jdb-tooltip-bottomRight .jdb-plg-arrow {
+    top: 5px;
+    border-width: 0 5px 5px;
+    border-bottom-color: $body-bg;
+}
+
+.jdb-tooltip-bottom .jdb-plg-arrow {
+    left: 50%;
+    margin-left: -5px;
+}
+
+.jdb-tooltip-bottomLeft .jdb-plg-arrow {
+    left: 16px;
+}
+
+.jdb-tooltip-bottomRight .jdb-plg-arrow {
+    right: 16px;
+}
+
+// 深色背景
+.jdb-dark-bg {
+    .jdb-plg-inner {
+        background-color: $body-color;
+        color: $body-bg;
+    }
+}
+
+// 深色箭头
+.jdb-dark-bg.jdb-tooltip-top .jdb-plg-arrow,
+.jdb-dark-bg.jdb-tooltip-topLeft .jdb-plg-arrow,
+.jdb-dark-bg.jdb-tooltip-topRight .jdb-plg-arrow {
+    border-top-color: $body-color;
+}
+
+.jdb-dark-bg.jdb-tooltip-right .jdb-plg-arrow,
+.jdb-dark-bg.jdb-tooltip-rightTop .jdb-plg-arrow,
+.jdb-dark-bg.jdb-tooltip-rightBottom .jdb-plg-arrow {
+    border-right-color: $body-color;
+}
+
+.jdb-dark-bg.jdb-tooltip-left .jdb-plg-arrow,
+.jdb-dark-bg.jdb-tooltip-leftTop .jdb-plg-arrow,
+.jdb-dark-bg.jdb-tooltip-leftBottom .jdb-plg-arrow {
+    border-left-color: $body-color;
+}
+
+.jdb-dark-bg.jdb-tooltip-bottom .jdb-plg-arrow,
+.jdb-dark-bg.jdb-tooltip-bottomLeft .jdb-plg-arrow,
+.jdb-dark-bg.jdb-tooltip-bottomRight .jdb-plg-arrow {
+    border-bottom-color: $body-color;
+}

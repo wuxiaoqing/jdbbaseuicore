@@ -1,0 +1,57 @@
+<!-- 单选 -->
+<div *ngIf="_jdbMode=='chooseOne'" #inputDom class="jdb-plg-select-one" (click)="dialogShow($event)" [ngClass]="_size" [ngStyle]="{'width':_width}">
+    <!-- placeHolder -->
+    <div class="jdb-plg-select-placeholder" [hidden]="inputText!=''">{{_placeHolder}}</div>
+    <!-- 单选 -->
+    <span class="chooseOne" [hidden]="inputText==''">{{inputText}}</span>
+    <ul #optionList [ngClass]="{'options-show':show,'options-no-margin':!spaceFlex}" class="options">
+        <!-- 单选 -->
+        <li *ngFor="let option of _selectList" (click)="item($event,option)" [ngClass]="{active:inputText===option[_optionText],disabled:option.disabled}">
+            {{_optionText=='option'?option:option[_optionText]}}
+        </li>
+    </ul>
+    <!-- 清空图标 -->
+    <span class="close-icon icon-empty" [hidden]="!isShowClear" (click)="clearInputText($event)"></span>
+    <!-- 单选时下拉图标 -->
+    <span class="select-icon icon-select-arrow" [hidden]="isShowClear"></span>
+</div>
+
+<!-- 多选 -->
+<div *ngIf="_jdbMode=='chooseMore'" #inputDom class="jdb-plg-select-more" (click)="dialogShow($event)" [ngClass]="_classMap" [ngStyle]="{'width':_width}">
+    <!-- placeHolder -->
+    <div class="jdb-plg-select-placeholder" [hidden]="inputText.length != 0">{{_placeHolder}}</div>
+    <!-- 多选item -->
+    <ul class="chooseMore">
+        <li *ngFor="let item of inputText">
+            {{item.text}}
+            <span class="item-delete icon-close" (click)="deleteMoreItem($event,item)"></span>
+        </li>
+    </ul>
+    <ul #optionList [ngClass]="{'options-show':show,'options-no-margin':!spaceFlex}" class="options">
+        <li class="choose-more" *ngFor="let option of _selectList" (click)="chooseMore($event,option)" [ngClass]="{'active':moreIndex(option),disabled:option.disabled}">
+            {{_optionText=='option'?option:option[_optionText]}}
+            <span [hidden]="!moreIndex(option)" class="choose-right icon-selected"></span>
+        </li>
+    </ul>
+    <!-- 清空图标 -->
+    <span class="close-icon icon-empty" [hidden]="!isShowClear" (click)="clearInputText($event)"></span>
+</div>
+
+<!-- 选中几项 -->
+<div *ngIf="_jdbMode=='chooseNum'" #inputDom class="jdb-plg-select-num" (click)="dialogShow($event)" [ngClass]="_size" [ngStyle]="{'width':_width}">
+    <!-- placeHolder -->
+    <div class="jdb-plg-select-placeholder" [hidden]="inputText!=0">{{_placeHolder}}</div>
+    <span class="choose-tip" [hidden]="inputText==0">已选中{{inputText}}项</span>
+    <ul #optionList [ngClass]="{'options-show':show,'options-no-margin':!spaceFlex}" class="options">
+        <li class="choose-more" *ngFor="let option of _selectList" (click)="numClick($event,option)" [ngClass]="{'active':moreIndex(option),disabled:option.disabled}">
+            {{_optionText=='option'?option:option[_optionText]}}
+            <span [hidden]="!moreIndex(option)" class="choose-right icon-selected"></span>
+        </li>
+    </ul>
+    <!-- 清空图标 -->
+    <span class="close-icon icon-empty" [hidden]="!isShowClear" (click)="clearInputText($event)"></span>
+    <span class="select-icon icon-select-arrow" [hidden]="isShowClear"></span>
+</div>
+
+<!-- 遮罩层 -->
+<div class="jdb-plg-select-master" *ngIf="show"></div>
